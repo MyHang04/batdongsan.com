@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đại Phát - Mua Bán Đất Uy Tín</title>
+    
+    <style>
+        /* --- PHẦN 1: CSS GIAO DIỆN CHUNG --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; }
+
+        /* Thanh Menu */
+        header { background: #fff; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: bold; color: #e74c3c; }
+        .logo span { color: #2c3e50; }
+        
+        /* Banner & Tìm kiếm */
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover; color: #fff; text-align: center; padding: 80px 20px; }
+        .hero h1 { font-size: 40px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; }
+        
+        .search-box { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .search-box select, .search-box button { padding: 12px 20px; border-radius: 5px; border: none; font-size: 16px; outline: none; }
+        .search-box select { width: 250px; cursor: pointer; }
+        .search-box button { background: #e74c3c; color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s; padding: 12px 30px; }
+        .search-box button:hover { background: #c0392b; }
+
+        /* Danh sách thẻ đất */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .section-title { font-size: 28px; color: #2c3e50; margin-bottom: 30px; text-align: center; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
+        .card-img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; }
+        .card:hover .card-img { transform: scale(1.05); }
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-title { font-size: 18px; color: #333; margin-bottom: 10px; font-weight: bold; }
+        .card-price { color: #e74c3c; font-size: 22px; font-weight: bold; margin-bottom: 10px; }
+        .card-desc { font-size: 14px; color: #666; margin-bottom: 15px; line-height: 1.5; }
+        .card-btn { margin-top: auto; display: block; width: 100%; text-align: center; background: #3498db; color: #fff; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
+        .card-btn:hover { background: #2980b9; }
+
+        /* --- PHẦN 2: POPUP CHI TIẾT (CÓ NHIỀU ẢNH) --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: #fff; width: 95%; max-width: 950px; max-height: 90vh; overflow-y: auto; border-radius: 12px; display: flex; flex-direction: row; position: relative; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        /* Khung ảnh bên trái */
+        .modal-gallery { width: 50%; padding: 20px; display: flex; flex-direction: column; background: #f8f9fa;}
+        .main-image { width: 100%; height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; border: 1px solid #ddd; }
+        
+        /* Các ảnh nhỏ (Thumbnails) */
+        .thumbnail-list { display: flex; gap: 10px; }
+        .thumbnail { width: 25%; height: 70px; object-fit: cover; border-radius: 5px; cursor: pointer; opacity: 0.6; transition: 0.2s; border: 2px solid transparent; }
+        .thumbnail:hover, .thumbnail.active { opacity: 1; border-color: #3498db; } /* Ảnh đang xem sẽ sáng lên và có viền xanh */
+
+        /* Khung thông tin bên phải */
+        .modal-info { width: 50%; padding: 30px 30px 30px 10px; display: flex; flex-direction: column;}
+        .modal-info h2 { color: #2c3e50; margin-bottom: 10px; font-size: 24px; }
+        .modal-info .price { font-size: 26px; color: #e74c3c; font-weight: bold; margin-bottom: 15px; }
+        .modal-info ul { list-style: none; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 10px;}
+        .modal-info ul li { background: #f1f2f6; padding: 8px 12px; border-radius: 5px; font-size: 14px; color: #555; }
+        
+        /* Khung bản đồ */
+        .map-container { width: 100%; height: 200px; margin: 15px 0; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        .close-btn { position: absolute; top: 15px; right: 15px; background: #e74c3c; color: #fff; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 10; transition: 0.3s; }
+        .close-btn:hover { background: #c0392b; transform: rotate(90deg); }
+
+        .no-result { text-align: center; font-size: 18px; color: #e74c3c; margin-top: 20px; grid-column: 1 / -1; display: none;}
+
+        /* Giao diện điện thoại */
+        @media (max-width: 768px) {
+            .modal { flex-direction: column; }
+            .modal-gallery, .modal-info { width: 100%; padding: 20px; }
+            .main-image { height: 250px; }
+            .search-box { flex-direction: column; align-items: center; }
+            .search-box select, .search-box button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🏠 Đất <span>Việt</span></div>
+        <div style="font-weight: bold; color: #27ae60;">Hotline: 0987.654.321</div>
+    </header>
+
+    <section class="hero">
+        <h1>Tìm Lô Đất Mơ Ước Của Bạn</h1>
+        <p>Pháp lý minh bạch - Vị trí đắc địa - Giá cả cạnh tranh</p>
+        <div class="search-box">
+            <select id="filter-location">
+                <option value="all">Tất cả Tỉnh/Thành</option>
+                <option value="TP.HCM">TP. Hồ Chí Minh</option>
+                <option value="Lâm Đồng">Lâm Đồng</option>
+                <option value="Bến Tre">Bến Tre</option>
+            </select>
+            <select id="filter-price">
+                <option value="all">Tất cả Mức Giá</option>
+                <option value="under-1b">Dưới 1 Tỷ</option>
+                <option value="1b-2b">Từ 1 Tỷ - 2 Tỷ</option>
+                <option value="over-2b">Trên 2 Tỷ</option>
+            </select>
+            <button onclick="filterLands()">Tìm Kiếm</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Đất Đang Bán Chạy Nhất</h2>
+        <div class="grid" id="product-list"></div>
+        <div class="no-result" id="no-result">Không tìm thấy lô đất nào phù hợp với yêu cầu của bạn.</div>
+    </main>
+
+    <!-- POPUP CHI TIẾT (GIAO DIỆN MỚI CÓ NHIỀU ẢNH) -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="close-btn" onclick="closeModal()">✕</button>
+            
+            <!-- BÊN TRÁI: THƯ VIỆN ẢNH -->
+            <div class="modal-gallery">
+                <!-- Ảnh lớn chính -->
+                <img id="m-main-img" class="main-image" src="" alt="Ảnh lớn">
+                <!-- Danh sách ảnh nhỏ (JS sẽ tự tạo ra các thẻ img ở đây) -->
+                <div class="thumbnail-list" id="m-thumbnails"></div>
+            </div>
+            
+            <!-- BÊN PHẢI: THÔNG TIN & BẢN ĐỒ -->
+            <div class="modal-info">
+                <h2 id="m-title"></h2>
+                <div class="price" id="m-price"></div>
+                
+                <ul>
+                    <li><strong>DT:</strong> <span id="m-area"></span></li>
+                    <li><strong>Pháp lý:</strong> <span id="m-legal"></span></li>
+                    <li><strong>Hướng:</strong> <span id="m-direction"></span></li>
+                </ul>
+                
+                <p style="color: #666; font-size: 14px; margin-bottom: 5px;">📍 Địa chỉ: <span id="m-location"></span></p>
+                
+                <div class="map-container">
+                    <iframe id="m-map" src="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <button class="card-btn" style="background: #27ae60;" onclick="alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ lại ngay.')">Gọi Ngay: 0987.654.321</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* 
+         * ========================================================
+         * DỮ LIỆU ĐẤT (BẠN SẼ SỬA THÔNG TIN VÀ THÊM ẢNH Ở ĐÂY)
+         * Lưu ý: Mục "images" giờ là một mảng chứa NHIỀU link ảnh.
+         * Bạn muốn có bao nhiêu ảnh thì thêm bấy nhiêu link, cách nhau bởi dấu phẩy.
+         * ========================================================
+         */
+        const lands = [
+            {
+                id: 1,
+                title: "Đất Nền Ven Sông Tắc",
+                price: "1 Tỷ 200 Triệu",
+                priceValue: 1.2, 
+                province: "TP.HCM", 
+                area: "100m2 (5x20m)",
+                location: "Huyện Nhà Bè, TP.HCM",
+                legal: "Sổ hồng riêng",
+                direction: "Đông Nam",
+                // MẢNG ẢNH: Bạn thay bằng link ảnh thật của bạn. Ảnh đầu tiên sẽ làm ảnh đại diện ngoài trang chủ.
+                images: [
+                    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ],
+                mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+            },
+            {
+                id: 2,
+                title: "Đất Vườn Nghỉ Dưỡng View Đồi",
+                price: "850 Triệu",
+                priceValue: 0.85, 
+                province: "Lâm Đồng",
+                area: "500m2 (Có 100m2 thổ cư)",
+                location: "TP. Bảo Lộc, Lâm Đồng",
+                legal: "Sổ hồng riêng",
+                direction: "Tây Bắc",
+                // MẢNG ẢNH LÔ SỐ 2 (Có 2 ảnh)
+                images: [
+                    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ],
+                mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+            },
+            {
+                id: 3,
+                title: "Đất Mặt Tiền Kinh Doanh Sầm Uất",
+                price: "3 Tỷ 500 Triệu",
+                priceValue: 3.5, 
+                province: "TP.HCM",
+                area: "120m2 (6x20m)",
+                location: "TP. Thủ Đức, TP.HCM",
+                legal: "Sổ đỏ chính chủ",
+                direction: "Đông",
+                // MẢNG ẢNH LÔ SỐ 3
+                images: [
+                    "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ],
+                mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15672.55225551195!2d106.7411394!3d10.8492774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175279b99c31e5f%3A0x6a1b8c1c8b98b8b8!2zVGjhu6cgxJDhu6ljLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+            }
+        ];
+
+        const productList = document.getElementById('product-list');
+
+        // Hàm vẽ thẻ đất ra màn hình
+        function renderProducts(dataToRender) {
+            productList.innerHTML = '';
+            const noResultMsg = document.getElementById('no-result');
+            
+            if (dataToRender.length === 0) {
+                noResultMsg.style.display = 'block';
+                return;
+            } else {
+                noResultMsg.style.display = 'none';
+            }
+
+            dataToRender.forEach(land => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                // Sử dụng ảnh đầu tiên (index 0) làm ảnh đại diện ngoài danh sách
+                card.innerHTML = `
+                    <img src="${land.images[0]}" class="card-img" alt="${land.title}">
+                    <div class="card-content">
+                        <h3 class="card-title">${land.title}</h3>
+                        <div class="card-price">${land.price}</div>
+                        <div class="card-desc">
+                            📍 Diện tích: ${land.area}<br>
+                            📍 Vị trí: ${land.location}
+                        </div>
+                        <button class="card-btn" onclick="openModal(${land.id})">Xem Chi Tiết</button>
+                    </div>
+                `;
+                productList.appendChild(card);
+            });
+        }
+
+        // Hàm lọc Tìm kiếm
+        function filterLands() {
+            const selectedProvince = document.getElementById('filter-location').value;
+            const selectedPrice = document.getElementById('filter-price').value;
+
+            const filteredData = lands.filter(land => {
+                let matchProvince = (selectedProvince === 'all' || land.province === selectedProvince);
+                let matchPrice = false;
+                if (selectedPrice === 'all') matchPrice = true;
+                else if (selectedPrice === 'under-1b' && land.priceValue < 1) matchPrice = true;
+                else if (selectedPrice === '1b-2b' && land.priceValue >= 1 && land.priceValue <= 2) matchPrice = true;
+                else if (selectedPrice === 'over-2b' && land.priceValue > 2) matchPrice = true;
+
+                return matchProvince && matchPrice;
+            });
+
+            renderProducts(filteredData);
+        }
+
+        // HÀM MỞ POPUP VÀ TẠO THƯ VIỆN ẢNH
+        function openModal(id) {
+            const land = lands.find(l => l.id === id);
+            
+            // 1. Gắn thông tin chữ
+            document.getElementById('m-title').innerText = land.title;
+            document.getElementById('m-price').innerText = land.price;
+            document.getElementById('m-area').innerText = land.area;
+            document.getElementById('m-location').innerText = land.location;
+            document.getElementById('m-legal').innerText = land.legal;
+            document.getElementById('m-direction').innerText = land.direction;
+            document.getElementById('m-map').src = land.mapLink;
+
+            // 2. Xử lý phần ảnh
+            const mainImg = document.getElementById('m-main-img');
+            const thumbList = document.getElementById('m-thumbnails');
+            
+            // Gắn ảnh đầu tiên làm ảnh lớn
+            mainImg.src = land.images[0];
+            
+            // Xóa các ảnh nhỏ cũ (nếu có)
+            thumbList.innerHTML = '';
+            
+            // Tự động tạo các ảnh nhỏ từ mảng "images"
+            land.images.forEach((imgUrl, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgUrl;
+                thumb.className = 'thumbnail';
+                
+                // Nếu là ảnh đầu tiên thì thêm class 'active' để nó sáng lên
+                if (index === 0) thumb.classList.add('active');
+
+                // Khi bấm vào ảnh nhỏ nào, đổi ảnh lớn thành ảnh đó
+                thumb.onclick = function() {
+                    mainImg.src = imgUrl; // Đổi ảnh lớn
+                    
+                    // Xóa viền xanh của tất cả ảnh nhỏ, và thêm viền xanh cho ảnh vừa bấm
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                };
+
+                // Đưa ảnh nhỏ vào danh sách
+                thumbList.appendChild(thumb);
+            });
+
+            // Hiện popup
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.getElementById('m-map').src = ""; 
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        renderProducts(lands);
+    </script>
+</body>
+</html>
