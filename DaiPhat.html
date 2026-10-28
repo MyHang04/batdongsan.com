@@ -91,7 +91,8 @@
                 <option value="TP.HCM">TP. Hồ Chí Minh</option>
                 <option value="Lâm Đồng">Lâm Đồng</option>
                 <option value="Bến Tre">Bến Tre</option>
-                <option value="Bến Tre">Đồng Tháp </option>
+                <!-- Đã sửa value thành Đồng Tháp -->
+                <option value="Đồng Tháp">Đồng Tháp</option> 
             </select>
             <select id="filter-price">
                 <option value="all">Tất cả Mức Giá</option>
@@ -138,10 +139,8 @@
 
                 <!-- KHUNG VIDEO (Ẩn đi nếu lô đất không có video) -->
                 <div class="media-container" id="m-video-container" style="display: none;">
-                    <!-- Video nhúng từ YouTube (Cách 1) -->
                     <iframe id="m-video-youtube" src="" style="display:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     
-                    <!-- Video tải lên từ máy tính (Cách 2) -->
                     <video id="m-video-local" controls style="display:none;">
                         <source id="m-video-source" src="" type="video/mp4">
                         Trình duyệt của bạn không hỗ trợ video.
@@ -154,13 +153,6 @@
     </div>
 
     <script>
-        /* 
-         * ========================================================
-         * DỮ LIỆU ĐẤT (THÊM VIDEO VÀO ĐÂY)
-         * - youtubeUrl: Link nhúng YouTube (Dành cho Cách 1)
-         * - localVideoUrl: Link raw video up từ máy tính (Dành cho Cách 2)
-         * ========================================================
-         */
         const lands = [
             {
                 id: 1,
@@ -172,51 +164,47 @@
                 location: "Khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp",
                 legal: "Sổ hồng riêng",
                 direction: "Bắc-Đông",
+                // ĐÃ ĐỔI TÊN REPO THÀNH daiphat.com VÀ SỬA DẤU NGOẶC KÉP
                 images: [
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh1.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh2.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh3.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh4.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh5.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh6.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh7.jpg",
-                    "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh1.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh2.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh3.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh4.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh5.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh6.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh7.jpg",
+                    "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/dh8.jpg"
                 ],
                 mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
                 
-                // CÁCH 1: Nhúng video YouTube (Dán link nhúng vào đây)
                 youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
                 
-                // CÁCH 2: Video tự up (Dán link raw .mp4 vào đây, nhớ xóa dấu // ở dòng dưới đi)
-                // localVideoUrl: "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/video-vi-tri-202610240334.mp4"
+                // localVideoUrl: "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/video-vi-tri-202610240334.mp4"
             },
             {
                 id: 2,
                 title: "BÁN ĐẤT TRUNG AN – ĐỒNG THÁP",
                 price: "1 tỷ 650 Triệu",
-                priceValue: 0.85, 
+                priceValue: 1.65, // Đã sửa lại giá trị cho đúng để bộ lọc hoạt động
                 province: "Đồng Tháp",
                 area: "160m2 (4,5x34m)",
-                location: "Đất thuộc Khu phố 1, phường Trung An, tỉnh Đồng Tháp (phường 10, TP. Mỹ Tho cũ), ngay khu vực trung tâm phường Trung An.",
+                location: "Đất thuộc Khu phố 1, phường Trung An, tỉnh Đồng Tháp",
                 legal: "Sổ hồng riêng",
                 direction: "Tây Nam",
+                // ĐÃ ĐỔI TÊN REPO THÀNH daiphat.com
                 images: [
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl1.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl2.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl3.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl4.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl5.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl6.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl7.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl8.jpg",
-                     "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl1.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl2.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl3.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl4.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl5.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl6.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl7.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl8.jpg",
+                     "https://raw.githubusercontent.com/MyHang04/daiphat.com/main/hl9.jpg"
                 ],
                 mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-                
-                // Lô này không có video YouTube
                 youtubeUrl: "", 
-                
-                // CÁCH 2: Dùng video tự up
                 localVideoUrl: "" 
             }
         ];
@@ -282,7 +270,6 @@
             document.getElementById('m-direction').innerText = land.direction;
             document.getElementById('m-map').src = land.mapLink;
 
-            // Xử lý ảnh
             const mainImg = document.getElementById('m-main-img');
             const thumbList = document.getElementById('m-thumbnails');
             mainImg.src = land.images[0];
@@ -302,34 +289,28 @@
                 thumbList.appendChild(thumb);
             });
 
-            // ==========================================
-            // XỬ LÝ HIỂN THỊ VIDEO (CẢ 2 CÁCH)
-            // ==========================================
             const videoContainer = document.getElementById('m-video-container');
             const iframeVideo = document.getElementById('m-video-youtube');
             const localVideo = document.getElementById('m-video-local');
             const localSource = document.getElementById('m-video-source');
 
-            // Reset trạng thái ban đầu (ẩn hết video đi)
             videoContainer.style.display = 'none';
             iframeVideo.style.display = 'none';
             iframeVideo.src = "";
             localVideo.style.display = 'none';
-            localVideo.pause(); // Dừng video nếu đang chạy
+            localVideo.pause();
             localSource.src = "";
 
-            // Nếu lô đất có link YouTube -> Hiển thị video YouTube
             if (land.youtubeUrl && land.youtubeUrl !== "") {
                 videoContainer.style.display = 'block';
                 iframeVideo.style.display = 'block';
                 iframeVideo.src = land.youtubeUrl;
             } 
-            // Nếu lô đất có link video tự up -> Hiển thị video tự up
             else if (land.localVideoUrl && land.localVideoUrl !== "") {
                 videoContainer.style.display = 'block';
                 localVideo.style.display = 'block';
                 localSource.src = land.localVideoUrl;
-                localVideo.load(); // Load lại thẻ video để nhận link mới
+                localVideo.load();
             }
 
             document.getElementById('modal').classList.add('active');
@@ -338,7 +319,6 @@
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
             document.getElementById('m-map').src = ""; 
-            // Tắt video khi đóng popup để không bị chạy ngầm
             document.getElementById('m-video-youtube').src = "";
             document.getElementById('m-video-local').pause();
         }
