@@ -485,18 +485,7 @@ header {
       <div class="modal-sec"><h4><i class="fa-solid fa-gift"></i> Lợi ích khi mua</h4><ul id="m-benefits"></ul></div>
       <div class="modal-sec"><h4><i class="fa-solid fa-map-location-dot"></i> Bản đồ vị trí</h4></div>
       <div class="modal-map"><iframe id="m-map" src="" loading="lazy"></iframe></div>
-      <div id="m-video-container" style="display:none;">
-        <div class="modal-sec"><h4><i class="fa-solid fa-video"></i> Video thực tế</h4></div>
-        <div class="modal-video">
-          <iframe id="m-video-youtube" src="" style="display:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <video id="m-video-local" controls style="display:none;">
-            <source id="m-video-source" src="" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="modal-note">
-        <i class="fa-solid fa-circle-info"></i> Đặt cọc  100 triệu. Thanh toán 07 ngày sau công chứng sang tên (có thể thỏa thuận). Bàn giao sổ sau khi sang tên dự kiến 4 tuần làm việc. Giá đã bao gồm VAT và phí sang tên.
-      </div>
+      <div class="modal-note" id="m-deposit-note"></div>
 
     </div>
   </div>
@@ -528,7 +517,6 @@ const dh28Lands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-   youtubeUrl: "", localVideoUrl: "",
     lots: null
   },
   {
@@ -552,7 +540,6 @@ const dh28Lands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-    youtubeUrl: "", localVideoUrl: "",
     lots: null
   },
   {
@@ -576,7 +563,6 @@ const dh28Lands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-    youtubeUrl: "", localVideoUrl: "",
     lots: null
   },
   {
@@ -600,7 +586,6 @@ const dh28Lands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-    youtubeUrl: "", localVideoUrl: "",
     lots: null
   }
 ];
@@ -632,7 +617,6 @@ const trungAnLands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-    youtubeUrl: "", localVideoUrl: "",
     lots: [
       { code: "KP1-01", area: "160 m²" },
       { code: "KP1-02", area: "160 m²" },
@@ -663,7 +647,6 @@ const trungAnLands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-    youtubeUrl: "", localVideoUrl: "",
     lots: [{ code: "KP1-04", area: "177,5 m²" }]
   },
 
@@ -690,7 +673,6 @@ const trungAnLands = [
       "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
     ],
     mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
-    youtubeUrl: "", localVideoUrl: "",
     lots: [
       { code: "KP1-05", area: "90 m²" },
       { code: "KP1-06", area: "90 m²" },
@@ -1000,29 +982,9 @@ function openModal(land) {
     };
     thumbList.appendChild(thumb);
   });
-
-  const videoContainer = document.getElementById('m-video-container');
-  const iframeVideo = document.getElementById('m-video-youtube');
-  const localVideo = document.getElementById('m-video-local');
-  const localSource = document.getElementById('m-video-source');
-
-  videoContainer.style.display = 'none';
-  iframeVideo.style.display = 'none';
-  iframeVideo.src = "";
-  localVideo.style.display = 'none';
-  localVideo.pause();
-  localSource.src = "";
-
-  if (land.youtubeUrl && land.youtubeUrl !== "") {
-    videoContainer.style.display = 'block';
-    iframeVideo.style.display = 'block';
-    iframeVideo.src = land.youtubeUrl;
-  } else if (land.localVideoUrl && land.localVideoUrl !== "") {
-    videoContainer.style.display = 'block';
-    localVideo.style.display = 'block';
-    localSource.src = land.localVideoUrl;
-    localVideo.load();
-  }
+  const depositAmount = land.code.startsWith("ĐH28") ? "100 triệu" : "50 triệu";
+  document.getElementById('m-deposit-note').innerHTML =
+    `<i class="fa-solid fa-circle-info"></i> Đặt cọc ${depositAmount}. Thanh toán 07 ngày sau công chứng sang tên (có thể thỏa thuận). Bàn giao sổ sau khi sang tên dự kiến 4 tuần làm việc. Giá và các khoản phí thực hiện theo thỏa thuận trong hợp đồng.`;
 
   document.getElementById('modal').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -1032,8 +994,6 @@ function closeModal() {
   document.getElementById('modal').classList.remove('active');
   document.body.style.overflow = '';
   document.getElementById('m-map').src = "";
-  document.getElementById('m-video-youtube').src = "";
-  document.getElementById('m-video-local').pause();
 }
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
