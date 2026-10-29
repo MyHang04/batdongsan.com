@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đất Nền Đồng Tháp - ĐH28 & Trung An</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+:root {
+  --primary: #e74c3c;
+  --primary-dark: #c0392b;
+  --green: #27ae60;
+  --dark: #2c3e50;
+  --gray: #666;
+  --light: #f8f9fa;
+  --gold: #c9a227;
+  --border: #e0e0e0;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--light); color: #333; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== HEADER ===== */
+header {
+  background: #fff; padding: 14px 40px; display: flex; justify-content: space-between;
+  align-items: center; box-shadow: 0 2px 12px rgba(0,0,0,.08); position: sticky; top: 0; z-index: 900;
+}
+.logo { font-size: 22px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+.logo span { color: var(--dark); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.hotline { font-weight: 700; color: var(--green); font-size: 15px; }
+.hotline i { margin-right: 6px; }
+.btn-header {
+  background: var(--primary); color: #fff !important; padding: 9px 20px; border-radius: 50px;
+  font-weight: 700; font-size: 14px; transition: .2s;
+}
+.btn-header:hover { background: var(--primary-dark); }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover;
+  color: #fff; text-align: center; padding: 90px 20px 70px;
+}
+.hero-badge {
+  display: inline-block; background: rgba(201,162,39,.95); color: #fff; padding: 6px 18px;
+  border-radius: 50px; font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 20px;
+}
+.hero h1 { font-size: clamp(26px, 4.5vw, 44px); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.25; }
+.hero p { font-size: clamp(15px, 2vw, 18px); margin-bottom: 30px; opacity: .93; }
+.hero-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+.hero-stats div { display: flex; flex-direction: column; }
+.hero-stats strong { font-size: 26px; color: var(--gold); }
+.hero-stats span { font-size: 13px; opacity: .85; }
+
+/* ===== SECTION ===== */
+.section { padding: 70px 0; }
+.section-alt { background: #fff; }
+.sec-tag { text-align: center; color: var(--gold); font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: clamp(24px, 4vw, 32px); color: var(--dark); margin-bottom: 10px; text-align: center; font-weight: 800; }
+.section-sub { text-align: center; color: var(--gray); max-width: 720px; margin: 0 auto 46px; font-size: 15px; }
+
+/* ===== PROJECT TABS ===== */
+.project-tabs {
+  display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;
+}
+.project-tab {
+  padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 14.5px; cursor: pointer;
+  border: 2px solid var(--border); background: #fff; color: var(--gray); transition: .25s;
+}
+.project-tab.active {
+  background: var(--primary); color: #fff; border-color: var(--primary);
+  box-shadow: 0 6px 20px rgba(231,76,60,.3);
+}
+.project-tab:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+/* ===== GIỚI THIỆU ===== */
+.intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.intro-img { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.15); }
+.intro-img img { width: 100%; height: 400px; object-fit: cover; }
+.intro-text h3 { font-size: 24px; color: var(--dark); margin-bottom: 16px; }
+.intro-text p { color: var(--gray); margin-bottom: 14px; font-size: 15px; }
+.intro-highlight { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+.hl-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+.hl-box strong { display: block; font-size: 20px; color: var(--primary); font-weight: 800; }
+.hl-box span { font-size: 12.5px; color: var(--gray); }
+
+/* ===== VỊ TRÍ ===== */
+.location-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 30px; }
+.loc-item { display: flex; gap: 14px; background: #fff; padding: 18px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.06); border: 1px solid var(--border); }
+.loc-item .ico { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), #ff7a5c); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.loc-item h4 { font-size: 14.5px; color: var(--dark); margin-bottom: 4px; }
+.loc-item p { font-size: 13px; color: var(--gray); }
+
+/* ===== CARD LÔ ĐẤT ===== */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+.card {
+  background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 5px 18px rgba(0,0,0,.08);
+  transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; cursor: pointer;
+  position: relative;
+}
+.card:hover { transform: translateY(-8px); box-shadow: 0 14px 32px rgba(0,0,0,.15); }
+.card.sold { opacity: 0.75; }
+.card.sold:hover { transform: translateY(-4px); }
+.card-img-wrap { position: relative; height: 210px; overflow: hidden; }
+.card-img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.card:hover .card-img { transform: scale(1.06); }
+.card-tag {
+  position: absolute; top: 12px; left: 12px; color: #fff;
+  padding: 5px 14px; border-radius: 50px; font-size: 12px; font-weight: 700;
+}
+.card-tag.available { background: var(--green); }
+.card-tag.sold { background: #888; }
+.card-code {
+  position: absolute; top: 12px; right: 12px; background: rgba(201,162,39,.95); color: #fff;
+  padding: 5px 12px; border-radius: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: .5px;
+}
+.card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.card-title { font-size: 16.5px; color: var(--dark); margin-bottom: 10px; font-weight: 700; line-height: 1.4; }
+.card-price { color: var(--primary); font-size: 21px; font-weight: 800; margin-bottom: 12px; }
+.card.sold .card-price { color: #888; text-decoration: line-through; }
+.card-desc { font-size: 13.5px; color: var(--gray); margin-bottom: 16px; line-height: 1.6; }
+.card-desc i { color: var(--gold); width: 16px; }
+.card-btn {
+  margin-top: auto; display: block; width: 100%; text-align: center; background: var(--primary);
+  color: #fff; padding: 12px; border: none; border-radius: 8px; cursor: pointer;
+  font-weight: 700; font-size: 15px; transition: .3s;
+}
+.card-btn:hover { background: var(--primary-dark); }
+.card.sold .card-btn { background: #888; cursor: not-allowed; }
+.card.sold .card-btn:hover { background: #888; }
+
+/* ===== TIỆN ÍCH ===== */
+.amenity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.amenity-item {
+  background: #fff; border-radius: 14px; padding: 24px 16px; text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06); transition: .3s; border: 1px solid var(--border);
+}
+.amenity-item:hover { transform: translateY(-5px); border-color: var(--primary); }
+.amenity-item .ico {
+  width: 54px; height: 54px; margin: 0 auto 14px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #ff7a5c); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.amenity-item h4 { font-size: 15px; color: var(--dark); margin-bottom: 4px; }
+.amenity-item p { font-size: 13px; color: var(--gray); }
+
+/* ===== MAP ===== */
+.map-box { border-radius: 16px; overflow: hidden; box-shadow: 0 12px 36px rgba(0,0,0,.12); }
+.map-box iframe { width: 100%; height: 380px; border: 0; }
+.note { font-size: 12.5px; color: #888; font-style: italic; margin-top: 14px; text-align: center; }
+.note i { color: var(--primary); }
+
+/* ===== LỢI ÍCH ===== */
+.benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+.benefit-card {
+  background: #fff; border-radius: 16px; padding: 30px 26px; box-shadow: 0 4px 20px rgba(0,0,0,.07);
+  border-left: 4px solid var(--gold); transition: .3s;
+}
+.benefit-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0,0,0,.12); }
+.benefit-card .ico { font-size: 30px; color: var(--primary); margin-bottom: 16px; }
+.benefit-card h3 { font-size: 18px; color: var(--dark); margin-bottom: 10px; }
+.benefit-card p { font-size: 14.5px; color: var(--gray); }
+
+/* ===== ƯU ĐÃI ===== */
+.offer-box {
+  max-width: 820px; margin: 0 auto; background: linear-gradient(135deg, #fff9e6, #fff);
+  border: 2px dashed var(--gold); border-radius: 18px; padding: 40px 34px; text-align: center;
+}
+.offer-box .ico { font-size: 42px; color: var(--gold); margin-bottom: 16px; }
+.offer-box h3 { font-size: 24px; color: var(--dark); margin-bottom: 20px; }
+.offer-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: left; }
+.offer-item {
+  display: flex; gap: 12px; align-items: flex-start; background: #fff;
+  padding: 16px 18px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+.offer-item i { color: var(--primary); font-size: 18px; margin-top: 3px; }
+.offer-item strong { display: block; font-size: 15px; color: var(--dark); }
+.offer-item span { font-size: 13px; color: var(--gray); }
+
+/* ===== PHÁP LÝ ===== */
+.legal-box {
+  max-width: 820px; margin: 0 auto; background: #fff; border-radius: 18px;
+  padding: 40px 34px; box-shadow: 0 8px 30px rgba(0,0,0,.08); text-align: center;
+}
+.legal-box .ico {
+  width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), #2ea866); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 32px;
+}
+.legal-box h3 { font-size: 24px; color: var(--dark); margin-bottom: 14px; }
+.legal-box p { color: var(--gray); font-size: 15px; margin-bottom: 20px; }
+.legal-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.legal-tag {
+  background: var(--light); color: var(--green); padding: 8px 18px; border-radius: 50px;
+  font-size: 13.5px; font-weight: 700; border: 1px solid var(--border);
+}
+
+/* ===== QUY MÔ ===== */
+.scale-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-top: 30px; }
+.scale-box {
+  background: #fff; border-radius: 14px; padding: 26px 20px; text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06); border-top: 4px solid var(--gold);
+}
+.scale-box .ico { font-size: 28px; color: var(--primary); margin-bottom: 12px; }
+.scale-box strong { display: block; font-size: 24px; color: var(--dark); font-weight: 800; margin-bottom: 4px; }
+.scale-box span { font-size: 13px; color: var(--gray); }
+
+/* ===== LIÊN HỆ ===== */
+.contact-section { background: linear-gradient(135deg, #1a5276, #2874a6); color: #fff; padding: 80px 0; }
+.contact-wrap { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; gap: 0; align-items: center; }
+.contact-info h2 { font-size: 30px; margin-bottom: 16px; }
+.contact-info p { opacity: .9; margin-bottom: 28px; font-size: 15px; }
+.contact-item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.contact-item .ico {
+  width: 48px; height: 48px; border-radius: 12px; background: rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+}
+.contact-item strong { display: block; font-size: 16px; }
+.contact-item span { font-size: 14px; opacity: .85; }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--dark); color: #aaa; padding: 40px 0 24px; text-align: center; font-size: 13.5px; }
+.footer .logo { justify-content: center; margin-bottom: 14px; color: #fff; }
+.footer p { margin-bottom: 6px; }
+
+/* ================================================= */
+/* ===== MODAL CHI TIẾT ĐẸP - 2 CỘT ĐẦY ĐỦ INFO ===== */
+/* ================================================= */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.8);
+  display: none; justify-content: center; align-items: flex-start; z-index: 1000;
+  padding: 30px 20px; overflow-y: auto;
+}
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: #fff; width: 100%; max-width: 1100px; border-radius: 18px;
+  display: flex; flex-direction: row; position: relative; overflow: hidden;
+  animation: slideDown .35s ease; box-shadow: 0 30px 80px rgba(0,0,0,.4);
+  margin: auto;
+}
+@keyframes slideDown { from { transform: translateY(-60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.modal-gallery {
+  width: 48%; padding: 22px; display: flex; flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+  border-right: 1px solid #e0e0e0;
+}
+.main-image {
+  width: 100%; height: 340px; object-fit: cover; border-radius: 12px;
+  margin-bottom: 14px; border: 3px solid #fff; box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  cursor: zoom-in; transition: .3s;
+}
+.main-image:hover { transform: scale(1.01); }
+.thumbnail-list { display: flex; gap: 8px; flex-wrap: wrap; }
+.thumbnail {
+  width: calc(20% - 7px); height: 64px; object-fit: cover; border-radius: 8px;
+  cursor: pointer; opacity: .55; transition: .2s; border: 2px solid transparent;
+}
+.thumbnail:hover, .thumbnail.active {
+  opacity: 1; border-color: var(--primary); transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(231,76,60,.3);
+}
+
+.modal-info {
+  width: 52%; padding: 30px 30px 30px 26px; display: flex; flex-direction: column;
+  max-height: 92vh; overflow-y: auto;
+}
+.modal-info::-webkit-scrollbar { width: 6px; }
+.modal-info::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.modal-code {
+  display: inline-block; background: var(--gold); color: #fff; padding: 5px 14px;
+  border-radius: 6px; font-size: 12px; font-weight: 800; letter-spacing: 1px;
+  margin-bottom: 12px; align-self: flex-start;
+}
+.modal-info h2 {
+  color: var(--dark); margin-bottom: 12px; font-size: 23px; line-height: 1.35; font-weight: 800;
+}
+.modal-price {
+  font-size: 30px; color: var(--primary); font-weight: 800; margin-bottom: 18px;
+  padding-bottom: 16px; border-bottom: 2px dashed #e0e0e0;
+}
+
+.modal-quickinfo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+}
+.qi-item {
+  background: var(--light); padding: 12px 14px; border-radius: 10px;
+  border-left: 3px solid var(--primary);
+}
+.qi-item .label {
+  font-size: 11.5px; color: var(--gray); text-transform: uppercase;
+  font-weight: 700; letter-spacing: .5px; margin-bottom: 3px;
+}
+.qi-item .value { font-size: 14.5px; color: var(--dark); font-weight: 700; }
+
+.modal-sec { margin-bottom: 18px; }
+.modal-sec h4 {
+  font-size: 15px; color: var(--dark); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.modal-sec h4 i { color: var(--primary); font-size: 14px; }
+.modal-sec p, .modal-sec li {
+  font-size: 14px; color: #555; line-height: 1.7;
+}
+.modal-sec ul { list-style: none; }
+.modal-sec li { padding: 5px 0; display: flex; gap: 8px; }
+.modal-sec li i { color: var(--green); margin-top: 4px; flex-shrink: 0; }
+
+.modal-map {
+  width: 100%; height: 220px; border-radius: 10px; overflow: hidden;
+  margin-bottom: 18px; border: 1px solid #ddd;
+}
+.modal-map iframe { width: 100%; height: 100%; border: 0; }
+
+.modal-video {
+  width: 100%; height: 220px; border-radius: 10px; overflow: hidden;
+  margin-bottom: 18px; border: 1px solid #ddd; background: #000;
+}
+.modal-video iframe, .modal-video video { width: 100%; height: 100%; border: 0; }
+
+.modal-cta {
+  display: flex; gap: 10px; margin-top: 8px; padding-top: 18px; border-top: 2px dashed #e0e0e0;
+}
+.modal-cta a, .modal-cta button {
+  flex: 1; padding: 14px; border-radius: 10px; font-weight: 800; text-align: center;
+  font-size: 15px; border: none; cursor: pointer; transition: .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.modal-cta .call {
+  background: var(--green); color: #fff; box-shadow: 0 4px 12px rgba(39,174,96,.3);
+}
+.modal-cta .call:hover { background: #1e8449; transform: translateY(-2px); }
+
+.modal-note {
+  font-size: 12px; color: #888; font-style: italic; margin-top: 14px;
+  padding: 10px 12px; background: #fff9e6; border-radius: 8px; border-left: 3px solid var(--gold);
+}
+
+.close-btn {
+  position: absolute; top: 14px; right: 14px; background: var(--primary); color: #fff;
+  border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 20px;
+  cursor: pointer; z-index: 10; transition: .3s; box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.close-btn:hover { background: var(--primary-dark); transform: rotate(90deg) scale(1.1); }
+
+.lot-list {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;
+}
+.lot-chip {
+  background: #fff; border: 2px solid var(--primary); color: var(--primary);
+  padding: 6px 14px; border-radius: 50px; font-size: 13px; font-weight: 800;
+}
+.lot-chip small { font-weight: 600; color: var(--gray); margin-left: 4px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .intro-grid, .contact-wrap, .offer-list { grid-template-columns: 1fr; gap: 30px; }
+  .intro-img img { height: 260px; }
+  .modal { flex-direction: column; max-width: 620px; }
+  .modal-gallery, .modal-info { width: 100%; padding: 20px; }
+  .modal-gallery { border-right: none; border-bottom: 1px solid #e0e0e0; }
+  .main-image { height: 260px; }
+  .modal-info { max-height: none; }
+  .modal-quickinfo { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  header { padding: 12px 18px; }
+  .header-right .hotline { display: none; }
+  .section { padding: 56px 0; }
+  .hero h1 { font-size: 24px; }
+  .hero-stats { gap: 22px; }
+  .modal-overlay { padding: 14px 10px; }
+  .modal-info h2 { font-size: 19px; }
+  .modal-price { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">🏠 Đất <span>Đồng Tháp</span></a>
+  <div class="header-right">
+    <div class="hotline"><i class="fa-solid fa-phone"></i> 0376 919 057</div>
+    <a href="#contact" class="btn-header">Liên hệ ngay</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-badge">ĐẤT NỀN MẶT TIỀN - SỔ RIÊNG TỪNG NỀN</span>
+  <h1>Đất Nền Đồng Tháp<br>ĐH28 & Trung An</h1>
+  <p>2 dự án đất nền tại Đồng Tháp: ĐH28 (Đạo Thạnh) và Trung An (Khu phố 1). Tổng cộng 11 lô đất, pháp lý minh bạch, sổ riêng từng nền, công chứng sang tên ngay.</p>
+  <div class="hero-stats">
+    <div><strong>11 lô</strong><span>Tổng số nền đất</span></div>
+    <div><strong>2 dự án</strong><span>ĐH28 & Trung An</span></div>
+    <div><strong>100%</strong><span>Sổ riêng từng nền</span></div>
+    <div><strong>3 chỉ</strong><span>Vàng SJC tặng kèm (ĐH28)</span></div>
+  </div>
+</section>
+
+<!-- TABS CHỌN DỰ ÁN -->
+<section class="section" id="products">
+  <div class="container">
+    <p class="sec-tag">DANH SÁCH LÔ ĐẤT</p>
+    <h2 class="section-title">Các Lô Đất Đang Bán</h2>
+    <p class="section-sub">Chọn dự án để xem danh sách lô đất. Bấm vào lô đất để xem thông tin chi tiết đầy đủ.</p>
+
+    <div class="project-tabs">
+      <button class="project-tab active" data-project="dh28">
+        <i class="fa-solid fa-road"></i> Dự án ĐH28 - Đạo Thạnh (4 lô)
+      </button>
+      <button class="project-tab" data-project="trungan">
+        <i class="fa-solid fa-school"></i> Dự án Trung An - Khu phố 1 (7 lô)
+      </button>
+    </div>
+
+    <div class="grid" id="product-list"></div>
+  </div>
+</section>
+
+<!-- THÔNG TIN DỰ ÁN -->
+<section class="section section-alt" id="project-info">
+  <div class="container">
+    <div id="project-info-content"></div>
+  </div>
+</section>
+
+<!-- LIÊN HỆ -->
+<section class="contact-section" id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-info">
+      <h2>Liên Hệ Để Được Tư Vấn</h2>
+      <p>Để lại thông tin hoặc gọi trực tiếp, chúng tôi sẽ tư vấn chi tiết về các lô đất và hỗ trợ xem đất thực tế.</p>
+      <div class="contact-item"><div class="ico"><i class="fa-solid fa-phone"></i></div><div><strong>0376 919 057</strong><span>Hotline tư vấn 24/7</span></div></div>
+      <div class="contact-item"><div class="ico"><i class="fa-solid fa-envelope"></i></div><div><strong>tranquynhmyhang.dmx@gmail.com</strong><span>Email liên hệ</span></div></div>
+      <div class="contact-item"><div class="ico"><i class="fa-solid fa-location-dot"></i></div><div><strong>Đạo Thạnh & Trung An, Đồng Tháp</strong><span>Vị trí các lô đất</span></div></div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="logo">🏠 Đất Đồng Tháp - ĐH28 & Trung An</div>
+    <p>© 2026 Đất nền tại Đạo Thạnh và Trung An, tỉnh Đồng Tháp.</p>
+    <p>Mọi thông tin trên website chỉ mang tính chất tham khảo. Giá và chính sách có thể thay đổi theo từng thời điểm.</p>
+  </div>
+</footer>
+
+<!-- MODAL CHI TIẾT -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <div class="modal-gallery">
+      <img id="m-main-img" class="main-image" src="" alt="Ảnh lớn">
+      <div class="thumbnail-list" id="m-thumbnails"></div>
+    </div>
+    <div class="modal-info">
+      <div class="modal-code" id="m-code"></div>
+      <h2 id="m-title"></h2>
+      <div class="modal-price" id="m-price"></div>
+      <div class="modal-quickinfo">
+        <div class="qi-item"><div class="label">Diện tích</div><div class="value" id="m-area"></div></div>
+        <div class="qi-item"><div class="label">Kích thước</div><div class="value" id="m-dim"></div></div>
+        <div class="qi-item"><div class="label">Hướng</div><div class="value" id="m-direction"></div></div>
+        <div class="qi-item"><div class="label">Đơn giá</div><div class="value" id="m-unitprice"></div></div>
+        <div class="qi-item"><div class="label">Pháp lý</div><div class="value" id="m-legal"></div></div>
+        <div class="qi-item"><div class="label">Trạng thái</div><div class="value" id="m-status"></div></div>
+      </div>
+      <div class="modal-sec" id="m-lotlist-sec" style="display:none;">
+        <h4><i class="fa-solid fa-list"></i> Các mã lô trong nhóm</h4>
+        <div class="lot-list" id="m-lotlist"></div>
+      </div>
+      <div class="modal-sec"><h4><i class="fa-solid fa-location-dot"></i> Vị trí</h4><p id="m-location"></p></div>
+      <div class="modal-sec"><h4><i class="fa-solid fa-circle-info"></i> Mô tả</h4><p id="m-desc"></p></div>
+      <div class="modal-sec"><h4><i class="fa-solid fa-file-shield"></i> Pháp lý</h4><p id="m-legal-detail"></p></div>
+      <div class="modal-sec"><h4><i class="fa-solid fa-gift"></i> Lợi ích khi mua</h4><ul id="m-benefits"></ul></div>
+      <div class="modal-sec"><h4><i class="fa-solid fa-map-location-dot"></i> Bản đồ vị trí</h4></div>
+      <div class="modal-map"><iframe id="m-map" src="" loading="lazy"></iframe></div>
+      <div id="m-video-container" style="display:none;">
+        <div class="modal-sec"><h4><i class="fa-solid fa-video"></i> Video thực tế</h4></div>
+        <div class="modal-video">
+          <iframe id="m-video-youtube" src="" style="display:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <video id="m-video-local" controls style="display:none;">
+            <source id="m-video-source" src="" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="modal-note">
+        <i class="fa-solid fa-circle-info"></i> Đặt cọc 50 triệu. Thanh toán 07 ngày sau công chứng sang tên (có thể thỏa thuận). Bàn giao sổ sau khi sang tên dự kiến 4 tuần làm việc. Giá đã bao gồm VAT và phí sang tên.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// ===== DỰ ÁN 1: ĐH28 - ĐẠO THẠNH (4 lô) =====
+// ============================================================
+const dh28Lands = [
+  {
+    id: 1, code: "ĐH28-01",
+    title: "Lô ĐH28-01 - Mặt tiền đường nhựa ĐH28",
+    price: "1 Tỷ 820 Triệu", priceValue: 1.82,
+    area: "181 m²", dim: "5,10 × 35,49 m", direction: "Bắc – Đông",
+    legal: "Sổ riêng từng nền", status: "available",
+    location: "Khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp",
+    desc: "Lô đất mặt tiền đường nhựa ĐH28, diện tích 181m², kích thước 5,10 × 35,49m, hướng Bắc – Đông. Đất ở đô thị, phù hợp xây dựng nhà ở hoặc đầu tư lâu dài. Vị trí đắc địa, gần chợ, trường học, kết nối giao thông thuận tiện.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%, đất ở đô thị lâu dài.",
+    benefits: ["Mặt tiền đường nhựa ĐH28, lộ giới 15m", "Xe tải 12 tấn lưu thông thuận tiện", "Sổ riêng, công chứng sang tên ngay", "Tặng 3 chỉ vàng SJC + bao thuế phí"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", localVideoUrl: "",
+    lots: null
+  },
+  {
+    id: 2, code: "ĐH28-02",
+    title: "Lô ĐH28-02 - Mặt tiền đường nhựa ĐH28",
+    price: "1 Tỷ 840 Triệu", priceValue: 1.84,
+    area: "168 m²", dim: "5,10 × 32,94 m", direction: "Bắc",
+    legal: "Sổ riêng từng nền", status: "available",
+    location: "Khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp",
+    desc: "Lô đất mặt tiền đường nhựa ĐH28, diện tích 168m², kích thước 5,10 × 32,94m, hướng Bắc. Đất ở đô thị, phù hợp xây dựng nhà ở hoặc đầu tư lâu dài.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%, đất ở đô thị lâu dài.",
+    benefits: ["Mặt tiền đường nhựa ĐH28, lộ giới 15m", "Xe tải 12 tấn lưu thông thuận tiện", "Sổ riêng, công chứng sang tên ngay", "Tặng 3 chỉ vàng SJC + bao thuế phí"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "", localVideoUrl: "",
+    lots: null
+  },
+  {
+    id: 3, code: "ĐH28-03",
+    title: "Lô ĐH28-03 - Mặt tiền đường nhựa ĐH28",
+    price: "1 Tỷ 760 Triệu", priceValue: 1.76,
+    area: "160 m²", dim: "5,10 × 31,37 m", direction: "Bắc",
+    legal: "Sổ riêng từng nền", status: "available",
+    location: "Khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp",
+    desc: "Lô đất mặt tiền đường nhựa ĐH28, diện tích 160m², kích thước 5,10 × 31,37m, hướng Bắc. Đất ở đô thị, phù hợp xây dựng nhà ở hoặc đầu tư lâu dài.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%, đất ở đô thị lâu dài.",
+    benefits: ["Mặt tiền đường nhựa ĐH28, lộ giới 15m", "Xe tải 12 tấn lưu thông thuận tiện", "Sổ riêng, công chứng sang tên ngay", "Tặng 3 chỉ vàng SJC + bao thuế phí"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "", localVideoUrl: "",
+    lots: null
+  },
+  {
+    id: 4, code: "ĐH28-04",
+    title: "Lô ĐH28-04 - Mặt tiền đường nhựa ĐH28",
+    price: "1 Tỷ 680 Triệu", priceValue: 1.68,
+    area: "153 m²", dim: "5,10 × 30,00 m", direction: "Bắc",
+    legal: "Sổ riêng từng nền", status: "available",
+    location: "Khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp",
+    desc: "Lô đất mặt tiền đường nhựa ĐH28, diện tích 153m², kích thước 5,10 × 30,00m, hướng Bắc. Đất ở đô thị, phù hợp xây dựng nhà ở hoặc đầu tư lâu dài.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%, đất ở đô thị lâu dài.",
+    benefits: ["Mặt tiền đường nhựa ĐH28, lộ giới 15m", "Xe tải 12 tấn lưu thông thuận tiện", "Sổ riêng, công chứng sang tên ngay", "Tặng 3 chỉ vàng SJC + bao thuế phí"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/dh8.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.63185169278!2d106.7113904!3d10.6647224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31753111bbd9e8b3%3A0xe5f4cc0b154c1b0b!2zTmjDoCBCw6gsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "", localVideoUrl: "",
+    lots: null
+  }
+];
+
+// ============================================================
+// ===== DỰ ÁN 2: TRUNG AN - GỘP NHÓM (KP1-04 ĐÃ BÁN) =====
+// ============================================================
+const trungAnLands = [
+  // NHÓM 1: 3 lô 160m² - CÒN TRỐNG
+  {
+    id: 11, code: "KP1-01, 02, 03",
+    title: "3 Lô 160m² - Gần Trường Thái Sanh Hạnh, Khu phố 1 Trung An",
+    price: "1 Tỷ 650 Triệu / lô", priceValue: 1.65,
+    area: "160 m² / lô", dim: "Đang cập nhật", direction: "Đang cập nhật",
+    legal: "Sổ riêng từng nền", status: "available",
+    location: "Khu phố 1, phường Trung An, tỉnh Đồng Tháp (Phường 10, TP. Mỹ Tho cũ)",
+    desc: "Nhóm 3 lô đất liền kề tại Khu phố 1, phường Trung An, tỉnh Đồng Tháp. Mỗi lô diện tích 160m², mặt tiền đường nhựa HL 94. Gần Trường THCS Thái Sanh Hạnh, Công an phường Trung An, chợ và Co.opmart. Vị trí trung tâm, thuận tiện sinh hoạt và đầu tư.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%.",
+    benefits: ["Mặt tiền đường nhựa HL 94, lộ giới 8m", "Gần Trường THCS Thái Sanh Hạnh, Công an phường", "Sổ riêng, công chứng sang tên ngay", "Giảm giá 30 triệu/nền + bao thuế phí"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl8.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "", localVideoUrl: "",
+    lots: [
+      { code: "KP1-01", area: "160 m²" },
+      { code: "KP1-02", area: "160 m²" },
+      { code: "KP1-03", area: "160 m²" }
+    ]
+  },
+
+  // NHÓM 2: 1 lô 177,5m² - ĐÃ BÁN
+  {
+    id: 12, code: "KP1-04",
+    title: "Lô 177,5m² - Gần Trường Thái Sanh Hạnh, Khu phố 1 Trung An",
+    price: "1 Tỷ 850 Triệu", priceValue: 1.85,
+    area: "177,5 m²", dim: "Đang cập nhật", direction: "Đang cập nhật",
+    legal: "Sổ riêng từng nền", status: "sold",
+    location: "Khu phố 1, phường Trung An, tỉnh Đồng Tháp (Phường 10, TP. Mỹ Tho cũ)",
+    desc: "Lô đất lớn nhất trong dự án Trung An, diện tích 177,5m², mặt tiền đường nhựa HL 94. Gần Trường THCS Thái Sanh Hạnh, Công an phường Trung An, chợ và Co.opmart. Lô đất này đã được bán.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%.",
+    benefits: ["Mặt tiền đường nhựa HL 94, lộ giới 8m", "Gần Trường THCS Thái Sanh Hạnh, Công an phường", "Sổ riêng, công chứng sang tên ngay", "Đã bán"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl8.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "", localVideoUrl: "",
+    lots: [{ code: "KP1-04", area: "177,5 m²" }]
+  },
+
+  // NHÓM 3: 3 lô 90m² - CÒN TRỐNG
+  {
+    id: 13, code: "KP1-05, 06, 07",
+    title: "3 Lô 90m² - Gần Trường Thái Sanh Hạnh, Khu phố 1 Trung An",
+    price: "1 Tỷ 090 Triệu / lô", priceValue: 1.09,
+    area: "90 m² / lô", dim: "Đang cập nhật", direction: "Đang cập nhật",
+    legal: "Sổ riêng từng nền", status: "available",
+    location: "Khu phố 1, phường Trung An, tỉnh Đồng Tháp (Phường 10, TP. Mỹ Tho cũ)",
+    desc: "Nhóm 3 lô đất diện tích 90m² tại Khu phố 1, phường Trung An, tỉnh Đồng Tháp. Mặt tiền đường nhựa HL 94. Gần Trường THCS Thái Sanh Hạnh, Công an phường Trung An, chợ và Co.opmart. Phù hợp với khách hàng có ngân sách vừa phải.",
+    legalDetail: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%.",
+    benefits: ["Mặt tiền đường nhựa HL 94, lộ giới 8m", "Gần Trường THCS Thái Sanh Hạnh, Công an phường", "Sổ riêng, công chứng sang tên ngay", "Giảm giá 30 triệu/nền + bao thuế phí"],
+    images: [
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl7.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl1.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl2.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl3.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl4.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl5.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl6.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl8.jpg",
+      "https://raw.githubusercontent.com/MyHang04/batdongsan.com/main/hl9.jpg"
+    ],
+    mapLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15612.37427545125!2d107.7891472!3d11.5582162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3173f70382febec7%3A0x5c1c1c8b98b8b8b8!2zQuG6o28gTOG7mWMsIEzDom0gxJDhu5NuZw!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s",
+    youtubeUrl: "", localVideoUrl: "",
+    lots: [
+      { code: "KP1-05", area: "90 m²" },
+      { code: "KP1-06", area: "90 m²" },
+      { code: "KP1-07", area: "90 m²" }
+    ]
+  }
+];
+
+// ============================================================
+// ===== THÔNG TIN TỔNG QUAN TỪNG DỰ ÁN =====
+// ============================================================
+const projectInfo = {
+  dh28: {
+    tag: "DỰ ÁN ĐH28 - ĐẠO THẠNH",
+    title: "Đất Mặt Tiền Đường Nhựa ĐH28",
+    subtitle: "4 lô đất nền tại Khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp. Mặt tiền đường nhựa ĐH28, lộ giới 15m, xe tải 12 tấn lưu thông.",
+    overview: "Dự án tọa lạc tại khu phố Long Hòa A, phường Đạo Thạnh, tỉnh Đồng Tháp. Vị trí mặt tiền đường nhựa ĐH28, xe tải 12 tấn lưu thông thuận tiện. Gần chợ Bến Tranh, chợ Thanh Bình, Trường THCS Lương Hòa Lạc, Trường Tiểu học Thân Cừu Nghĩa B và Trường Đại học Tiền Giang. Kết nối thuận tiện ra Quốc lộ 1A, cao tốc và trung tâm TP. Mỹ Tho.",
+    highlights: [
+      { strong: "662 m²", span: "Tổng diện tích" },
+      { strong: "04 lô", span: "Số nền đất" },
+      { strong: "100%", span: "Sổ riêng từng nền" },
+      { strong: "15m", span: "Lộ giới đường" }
+    ],
+    scale: [
+      { ico: "fa-vector-square", strong: "662 m²", span: "Tổng diện tích (0,0662 ha)" },
+      { ico: "fa-layer-group", strong: "04 nền", span: "Số lượng lô đất" },
+      { ico: "fa-house", strong: "Tự do", span: "Xây dựng nhà cấp 4, 1 trệt 1,2,3 lầu" },
+      { ico: "fa-plug", strong: "Sẵn sàng", span: "Điện, nước máy, cống thoát nước" }
+    ],
+    locations: [
+      { ico: "fa-road", h4: "Mặt tiền đường nhựa ĐH28", p: "Lộ giới 15m, xe tải 12 tấn lưu thông thuận tiện." },
+      { ico: "fa-store", h4: "Gần chợ Bến Tranh, chợ Thanh Bình", p: "Thuận tiện cho nhu cầu mua sắm và sinh hoạt hằng ngày." },
+      { ico: "fa-school", h4: "Gần trường học các cấp", p: "THCS Lương Hòa Lạc, Tiểu học Thân Cừu Nghĩa B, Đại học Tiền Giang." },
+      { ico: "fa-city", h4: "Gần trung tâm TP. Mỹ Tho", p: "Kết nối với các cơ quan hành chính và trung tâm thành phố." },
+      { ico: "fa-route", h4: "Kết nối Quốc lộ 1A & cao tốc", p: "Di chuyển đến ngã tư Lương Phú và QL1A khoảng 5–10 phút." },
+      { ico: "fa-cart-shopping", h4: "Gần AEON đang xây dựng", p: "Thuận tiện mua sắm, vui chơi, giải trí trong tương lai." }
+    ],
+    amenities: [
+      { ico: "fa-store", h4: "Chợ Bến Tranh", p: "Mua sắm, sinh hoạt" },
+      { ico: "fa-store", h4: "Chợ Thanh Bình", p: "Mua sắm, sinh hoạt" },
+      { ico: "fa-school", h4: "THCS Lương Hòa Lạc", p: "Trường học các cấp" },
+      { ico: "fa-school", h4: "TH Thân Cừu Nghĩa B", p: "Trường tiểu học" },
+      { ico: "fa-graduation-cap", h4: "ĐH Tiền Giang", p: "Trường đại học" },
+      { ico: "fa-cart-shopping", h4: "AEON (đang xây)", p: "Trung tâm thương mại" }
+    ],
+    benefits: [
+      { ico: "fa-location-dot", h3: "Vị trí thuận tiện", p: "Nằm mặt tiền đường nhựa ĐH28, thuận tiện di chuyển đến trung tâm, trường học, chợ và các tiện ích xung quanh." },
+      { ico: "fa-file-shield", h3: "Pháp lý đầy đủ, minh bạch", p: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%, giúp khách hàng an tâm xuống tiền." },
+      { ico: "fa-chart-line", h3: "Giá đất còn thấp", p: "Dư địa tăng giá còn lớn. Quỹ đất ngay trung tâm ngày càng hiếm, bỏ lỡ cơ hội sau này khó tìm được đất giá mềm." },
+      { ico: "fa-people-group", h3: "Dân cư đông đúc", p: "Hạ tầng đường sá hoàn thiện, xanh sạch đẹp, an ninh. Phù hợp xây dựng nhà ở hoặc đầu tư lâu dài." },
+      { ico: "fa-truck", h3: "Giao thông thuận lợi", p: "Đường nhựa lộ giới 15m, xe tải 12 tấn lưu thông. Kết nối Quốc lộ 1A và cao tốc dễ dàng." },
+      { ico: "fa-hand-holding-heart", h3: "Ưu đãi hấp dẫn", p: "Tặng 3 chỉ vàng SJC, bao toàn bộ thuế phí mua bán và phí sang tên ra sổ cho khách hàng." }
+    ],
+    offers: [
+      { ico: "fa-coins", strong: "Tặng 3 chỉ vàng SJC", span: "Quà tặng giá trị khi mua đất ĐH28" },
+      { ico: "fa-receipt", strong: "Bao toàn bộ thuế phí", span: "Thuế phí mua bán được hỗ trợ 100%" },
+      { ico: "fa-file-signature", strong: "Miễn phí sang tên ra sổ", span: "Hỗ trợ thủ tục sang tên nhanh gọn" },
+      { ico: "fa-handshake", strong: "Thanh toán linh hoạt", span: "07 ngày sau công chứng sang tên, có thể thỏa thuận" }
+    ],
+    mapEmbed: "https://www.google.com/maps?q=10.3600,106.3600&hl=vi&z=14&output=embed"
+  },
+
+  trungan: {
+    tag: "DỰ ÁN TRUNG AN - KHU PHỐ 1",
+    title: "Đất Mặt Tiền Đường Nhựa Gần Trường Thái Sanh Hạnh",
+    subtitle: "7 lô đất nền tại Khu phố 1, phường Trung An, tỉnh Đồng Tháp (Phường 10, TP. Mỹ Tho cũ). Mặt tiền đường nhựa HL 94, gần trường học, chợ, Co.opmart. Hiện còn 6 lô đang bán.",
+    overview: "Khu đất tọa lạc tại Khu phố 1, phường Trung An, tỉnh Đồng Tháp (Phường 10, TP. Mỹ Tho cũ). Vị trí mặt tiền đường nhựa HL 94, gần Trường THCS Thái Sanh Hạnh, Công an phường Trung An, chợ và Co.opmart. Dễ dàng di chuyển ra đường Trung Lương, đường Ấp Bắc, Quốc lộ 1A, Quốc lộ 60. Khu đất có cầu qua kênh, xe 16 chỗ và xe tải khoảng 5 tấn có thể đi vào.",
+    highlights: [
+      { strong: "927,5 m²", span: "Tổng diện tích" },
+      { strong: "06 lô", span: "Đang bán (1 đã bán)" },
+      { strong: "100%", span: "Sổ riêng từng nền" },
+      { strong: "30 tr", span: "Giảm giá/nền" }
+    ],
+    scale: [
+      { ico: "fa-vector-square", strong: "927,5 m²", span: "Tổng diện tích (0,09275 ha)" },
+      { ico: "fa-layer-group", strong: "07 nền", span: "3 nền 160m² + 1 nền 177,5m² (đã bán) + 3 nền 90m²" },
+      { ico: "fa-house", strong: "Tự do", span: "Xây dựng nhà cấp 4, 1 trệt 1,2,3 lầu" },
+      { ico: "fa-plug", strong: "Sẵn sàng", span: "Điện, nước máy, cống thoát nước có sẵn" }
+    ],
+    locations: [
+      { ico: "fa-road", h4: "Mặt tiền đường nhựa HL 94", p: "Lộ giới 8m, kết nối Quốc lộ 1A, Quốc lộ 60." },
+      { ico: "fa-shield-halved", h4: "Gần Công an phường Trung An", p: "An ninh đảm bảo, thuận tiện sinh hoạt." },
+      { ico: "fa-school", h4: "Gần Trường THCS Thái Sanh Hạnh", p: "Thuận tiện cho con em học tập." },
+      { ico: "fa-store", h4: "Gần chợ và Co.opmart", p: "Mua sắm, sinh hoạt hằng ngày thuận tiện." },
+      { ico: "fa-city", h4: "Gần trung tâm hành chính", p: "Chỉ vài trăm mét là tới, thuận tiện giao dịch." },
+      { ico: "fa-route", h4: "Kết nối đường Nguyễn Tử Vân", p: "Lộ giới 15m, dễ dàng di chuyển ra đường Trung Lương, Ấp Bắc." }
+    ],
+    amenities: [
+      { ico: "fa-shield-halved", h4: "Công an phường Trung An", p: "Gần khu đất" },
+      { ico: "fa-school", h4: "THCS Thái Sanh Hạnh", p: "Trường học các cấp" },
+      { ico: "fa-store", h4: "Chợ Trung An", p: "Mua sắm, sinh hoạt" },
+      { ico: "fa-cart-shopping", h4: "Co.opmart", p: "Trung tâm thương mại" },
+      { ico: "fa-building", h4: "Trung tâm hành chính", p: "Cách vài trăm mét" },
+      { ico: "fa-road", h4: "Đường Nguyễn Tử Vân", p: "Lộ giới 15m" }
+    ],
+    benefits: [
+      { ico: "fa-location-dot", h3: "Vị trí trung tâm TP. Mỹ Tho cũ", p: "Đầy đủ tiện ích: điện, đường, trường, trạm y tế, siêu thị, chợ, gần trung tâm hành chính. Cực kỳ lý tưởng để sinh sống." },
+      { ico: "fa-file-shield", h3: "Pháp lý đầy đủ, minh bạch", p: "Sổ riêng từng nền, công chứng sang tên ngay. Pháp lý đầy đủ 100%, giúp khách hàng an tâm khi xuống tiền." },
+      { ico: "fa-chart-line", h3: "Giá đất còn thấp", p: "Dư địa tăng giá còn lớn. Quỹ đất ngay trung tâm ngày càng hiếm, bỏ lỡ cơ hội sau này khó tìm được đất trung tâm giá mềm." },
+      { ico: "fa-people-group", h3: "Dân cư đông đúc", p: "Hạ tầng đường sá hoàn thiện, xanh sạch đẹp, an ninh. Phù hợp xây dựng nhà ở hoặc đầu tư lâu dài." },
+      { ico: "fa-bridge", h3: "Cầu qua kênh đã xây dựng", p: "Xe 16 chỗ và xe tải khoảng 5 tấn có thể đi vào khu đất. Thuận tiện vận chuyển, đi lại." },
+      { ico: "fa-hand-holding-heart", h3: "Ưu đãi hấp dẫn", p: "Giảm giá 30 triệu/nền, bao toàn bộ thuế phí mua bán và phí sang tên ra sổ cho khách hàng." }
+    ],
+    offers: [
+      { ico: "fa-tags", strong: "Giảm giá 30 triệu/nền", span: "Ưu đãi đặc biệt khi mua đất Trung An" },
+      { ico: "fa-receipt", strong: "Bao toàn bộ thuế phí", span: "Thuế phí mua bán được hỗ trợ 100%" },
+      { ico: "fa-file-signature", strong: "Miễn phí sang tên ra sổ", span: "Hỗ trợ thủ tục sang tên nhanh gọn" },
+      { ico: "fa-handshake", strong: "Thanh toán linh hoạt", span: "Đặt cọc 50 triệu, thanh toán 07 ngày sau công chứng" }
+    ],
+    mapEmbed: "https://www.google.com/maps?q=10.3600,106.3600&hl=vi&z=14&output=embed"
+  }
+};
+
+// ============================================================
+// ===== BIẾN TOÀN CỤC =====
+// ============================================================
+let currentProject = "dh28";
+let currentLands = dh28Lands;
+
+// ============================================================
+// ===== RENDER CARD LÔ ĐẤT =====
+// ============================================================
+const productList = document.getElementById('product-list');
+
+function renderProducts(list) {
+  productList.innerHTML = '';
+  list.forEach(land => {
+    const isSold = land.status === 'sold';
+    const card = document.createElement('div');
+    card.className = 'card' + (isSold ? ' sold' : '');
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img src="${land.images[0]}" class="card-img" alt="${land.title}">
+        <span class="card-tag ${isSold ? 'sold' : 'available'}">${isSold ? 'ĐÃ BÁN' : 'Còn trống'}</span>
+        <span class="card-code">${land.code}</span>
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">${land.title}</h3>
+        <div class="card-price">${land.price}</div>
+        <div class="card-desc">
+          <i class="fa-solid fa-vector-square"></i> Diện tích: ${land.area}<br>
+          <i class="fa-solid fa-ruler-combined"></i> Kích thước: ${land.dim}<br>
+          <i class="fa-solid fa-compass"></i> Hướng: ${land.direction}
+        </div>
+        <button class="card-btn">${isSold ? 'Đã bán' : 'Xem chi tiết'} ${isSold ? '' : '<i class="fa-solid fa-arrow-right"></i>'}</button>
+      </div>
+    `;
+    if (!isSold) {
+      card.addEventListener('click', () => openModal(land));
+    }
+    productList.appendChild(card);
+  });
+}
+
+// ============================================================
+// ===== RENDER THÔNG TIN DỰ ÁN =====
+// ============================================================
+function renderProjectInfo(projectKey) {
+  const info = projectInfo[projectKey];
+  const el = document.getElementById('project-info-content');
+  el.innerHTML = `
+    <p class="sec-tag">${info.tag}</p>
+    <h2 class="section-title">${info.title}</h2>
+    <p class="section-sub">${info.subtitle}</p>
+
+    <div class="intro-grid" style="margin-bottom:50px">
+      <div class="intro-img">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900" alt="${info.title}">
+      </div>
+      <div class="intro-text">
+        <h3>Tổng quan dự án</h3>
+        <p>${info.overview}</p>
+        <div class="intro-highlight">
+          ${info.highlights.map(h => `<div class="hl-box"><strong>${h.strong}</strong><span>${h.span}</span></div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <p class="sec-tag">VỊ TRÍ ĐẮC ĐỊA</p>
+    <h2 class="section-title">Vị Trí & Kết Nối Giao Thông</h2>
+    <p class="section-sub">Khu đất nằm ở vị trí thuận tiện, kết nối giao thông dễ dàng đến mọi tiện ích.</p>
+    <div class="location-list">
+      ${info.locations.map(l => `<div class="loc-item"><div class="ico"><i class="fa-solid ${l.ico}"></i></div><div><h4>${l.h4}</h4><p>${l.p}</p></div></div>`).join('')}
+    </div>
+
+    <p class="sec-tag" style="margin-top:50px">QUY MÔ DỰ ÁN</p>
+    <h2 class="section-title">Thông Tin Quy Mô</h2>
+    <p class="section-sub">Thông tin chi tiết về quy mô dự án.</p>
+    <div class="scale-grid">
+      ${info.scale.map(s => `<div class="scale-box"><div class="ico"><i class="fa-solid ${s.ico}"></i></div><strong>${s.strong}</strong><span>${s.span}</span></div>`).join('')}
+    </div>
+    <p class="note"><i class="fa-solid fa-circle-info"></i> Quy cách xây dựng căn cứ vào quy hoạch, quy định xây dựng tại địa phương và nhu cầu của người mua.</p>
+
+    <p class="sec-tag" style="margin-top:50px">TIỆN ÍCH XUNG QUANH</p>
+    <h2 class="section-title">Tiện Ích Đầy Đủ</h2>
+    <p class="section-sub">Khu vực xung quanh có trường học, chợ và các tiện ích phục vụ nhu cầu sinh hoạt hằng ngày.</p>
+    <div class="amenity-grid">
+      ${info.amenities.map(a => `<div class="amenity-item"><div class="ico"><i class="fa-solid ${a.ico}"></i></div><h4>${a.h4}</h4><p>${a.p}</p></div>`).join('')}
+    </div>
+    <div class="map-box">
+      <iframe src="${info.mapEmbed}" loading="lazy"></iframe>
+    </div>
+    <p class="note"><i class="fa-solid fa-circle-info"></i> Vị trí trên bản đồ chỉ mang tính chất tương đối. Liên hệ để được xem vị trí chính xác.</p>
+
+    <p class="sec-tag" style="margin-top:50px">VÌ SAO NÊN MUA</p>
+    <h2 class="section-title">Lợi Ích Khi Mua Đất</h2>
+    <p class="section-sub">Những giá trị vượt trội mà các lô đất mang lại cho nhà đầu tư và người an cư.</p>
+    <div class="benefit-grid">
+      ${info.benefits.map(b => `<div class="benefit-card"><div class="ico"><i class="fa-solid ${b.ico}"></i></div><h3>${b.h3}</h3><p>${b.p}</p></div>`).join('')}
+    </div>
+
+    <p class="sec-tag" style="margin-top:50px">CHÍNH SÁCH ƯU ĐÃI</p>
+    <h2 class="section-title">Ưu Đãi Đặc Biệt Cho Khách Hàng</h2>
+    <p class="section-sub">Những ưu đãi hấp dẫn dành riêng cho khách hàng mua đất trong thời gian này.</p>
+    <div class="offer-box">
+      <div class="ico"><i class="fa-solid fa-gift"></i></div>
+      <h3>Quà Tặng & Hỗ Trợ Hấp Dẫn</h3>
+      <div class="offer-list">
+        ${info.offers.map(o => `<div class="offer-item"><i class="fa-solid ${o.ico}"></i><div><strong>${o.strong}</strong><span>${o.span}</span></div></div>`).join('')}
+      </div>
+    </div>
+
+    <p class="sec-tag" style="margin-top:50px">PHÁP LÝ DỰ ÁN</p>
+    <h2 class="section-title">Pháp Lý Minh Bạch 100%</h2>
+    <div class="legal-box">
+      <div class="ico"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Sổ Riêng Từng Nền - Sang Tên Ngay</h3>
+      <p>Tất cả các lô đất đều có sổ riêng từng nền, công chứng sang tên được ngay. Pháp lý đầy đủ 100%, khách hàng hoàn toàn an tâm khi xuống tiền.</p>
+      <div class="legal-tags">
+        <span class="legal-tag"><i class="fa-solid fa-check"></i> Sổ riêng từng nền</span>
+        <span class="legal-tag"><i class="fa-solid fa-check"></i> Công chứng sang tên ngay</span>
+        <span class="legal-tag"><i class="fa-solid fa-check"></i> Pháp lý 100%</span>
+        <span class="legal-tag"><i class="fa-solid fa-check"></i> Đất ở đô thị</span>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// ===== CHUYỂN TAB DỰ ÁN =====
+// ============================================================
+document.querySelectorAll('.project-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentProject = tab.dataset.project;
+    currentLands = currentProject === 'dh28' ? dh28Lands : trungAnLands;
+    renderProducts(currentLands);
+    renderProjectInfo(currentProject);
+  });
+});
+
+// ============================================================
+// ===== MODAL CHI TIẾT =====
+// ============================================================
+function openModal(land) {
+  document.getElementById('m-code').innerText = "MÃ LÔ: " + land.code;
+  document.getElementById('m-title').innerText = land.title;
+  document.getElementById('m-price').innerText = land.price;
+  document.getElementById('m-area').innerText = land.area;
+  document.getElementById('m-dim').innerText = land.dim;
+  document.getElementById('m-direction').innerText = land.direction;
+  document.getElementById('m-legal').innerText = land.legal;
+  document.getElementById('m-location').innerText = land.location;
+  document.getElementById('m-desc').innerText = land.desc;
+  document.getElementById('m-legal-detail').innerText = land.legalDetail;
+
+  const statusEl = document.getElementById('m-status');
+  statusEl.innerText = land.status === 'sold' ? 'Đã bán' : 'Còn trống';
+  statusEl.style.color = land.status === 'sold' ? '#888' : 'var(--green)';
+
+  const priceNum = land.priceValue * 1e9;
+  const areaNum = parseFloat(land.area);
+  document.getElementById('m-unitprice').innerText = (priceNum / areaNum / 1e6).toFixed(1) + " triệu/m²";
+
+  document.getElementById('m-benefits').innerHTML = land.benefits.map(b =>
+    `<li><i class="fa-solid fa-circle-check"></i><span>${b}</span></li>`
+  ).join('');
+
+  const lotSec = document.getElementById('m-lotlist-sec');
+  const lotList = document.getElementById('m-lotlist');
+  if (land.lots && land.lots.length > 1) {
+    lotSec.style.display = 'block';
+    lotList.innerHTML = land.lots.map(l =>
+      `<span class="lot-chip">${l.code} <small>${l.area}</small></span>`
+    ).join('');
+  } else {
+    lotSec.style.display = 'none';
+    lotList.innerHTML = '';
+  }
+
+  document.getElementById('m-map').src = land.mapLink;
+
+  const mainImg = document.getElementById('m-main-img');
+  const thumbList = document.getElementById('m-thumbnails');
+  mainImg.src = land.images[0];
+  thumbList.innerHTML = '';
+  land.images.forEach((imgUrl, index) => {
+    const thumb = document.createElement('img');
+    thumb.src = imgUrl;
+    thumb.className = 'thumbnail';
+    if (index === 0) thumb.classList.add('active');
+    thumb.onclick = function() {
+      mainImg.src = imgUrl;
+      document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    };
+    thumbList.appendChild(thumb);
+  });
+
+  const videoContainer = document.getElementById('m-video-container');
+  const iframeVideo = document.getElementById('m-video-youtube');
+  const localVideo = document.getElementById('m-video-local');
+  const localSource = document.getElementById('m-video-source');
+
+  videoContainer.style.display = 'none';
+  iframeVideo.style.display = 'none';
+  iframeVideo.src = "";
+  localVideo.style.display = 'none';
+  localVideo.pause();
+  localSource.src = "";
+
+  if (land.youtubeUrl && land.youtubeUrl !== "") {
+    videoContainer.style.display = 'block';
+    iframeVideo.style.display = 'block';
+    iframeVideo.src = land.youtubeUrl;
+  } else if (land.localVideoUrl && land.localVideoUrl !== "") {
+    videoContainer.style.display = 'block';
+    localVideo.style.display = 'block';
+    localSource.src = land.localVideoUrl;
+    localVideo.load();
+  }
+
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.getElementById('m-map').src = "";
+  document.getElementById('m-video-youtube').src = "";
+  document.getElementById('m-video-local').pause();
+}
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ============================================================
+// ===== KHỞI TẠO =====
+// ============================================================
+renderProducts(dh28Lands);
+renderProjectInfo('dh28');
+</script>
+</body>
+</html>
